@@ -9,7 +9,7 @@ This GitHub repository is the Python SDK for Avalara's world-class tax service, 
 
 **Setup**
 
-```
+``` bash
 # Clone repository to your local machine
 $ git clone https://github.com/RJB888/Python_Final.git
 
@@ -19,7 +19,7 @@ $ cd Python_Final
 
 **Environment**
 
-```
+``` bash
 # Begin a new virtual environment with Python 3 
 Python_Final $ python3 -m venv ENV
 
@@ -31,7 +31,7 @@ Python_Final $ source ENV/bin/activate
 
 Install [pip](https://pip.pypa.io/en/stable) if you don't have it already
 
-```
+``` bash
 # pip install package  
 (ENV) Python_Final $ pip install -e .
 
@@ -60,7 +60,7 @@ For testing, your credentials are accessed as environment varibales through os.e
 
 Add the following to the ```activate``` file in your environment:
 
-```
+``` bash
 # Username and password
 USERNAME='your_sandbox_username'
 PASSWORD='your_sandbox_password'

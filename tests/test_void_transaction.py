@@ -11,6 +11,8 @@ def test_imports(single_transaction, auth_client):
 def test_void_changes_transaction_status_to(single_transaction, auth_client):
     """Test that running void_transaction voids it with default void model."""
     result = auth_client.void_transaction('DEFAULT', single_transaction).json()
+    import pdb; pdb.set_trace()
+
     assert result['status'] == "Cancelled"
 
 

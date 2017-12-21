@@ -13,32 +13,29 @@
     <a class="button" href="{{ url_for('create_view') }}">create</a>
     <a class="button" href="{{ url_for('commit_view') }}">commit</a>
 </div>
-<!-- {% if response %} -->
 <div class="container">
-    <div class="url_container">
-        <h3>API Endpoint</h3>
-        <div class="display_url">
-        </div>
-    </div>
-    <div class="url_container">
-        <h3>Method</h3>
-        <div class="display_url">
-        </div>
-    </div>
+
     <div class="request_container">
-        <h3>Request</h3>
-        <div class="display_request">
-            {{ request }}
-        </div>
+        <form action="" method="post" name="call_api">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.model.label }}<br>
+                {{ form.model(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
     </div>
+
     <div class="request_container">
         <h3>Response</h3>
-        <div class="display_request">
+        <textarea>
             {{ response }}
-        </div>
+        </textarea>
     </div>
 </div>
-<!-- {% endif %} -->
 
 </body>
 </html>
+
+
+

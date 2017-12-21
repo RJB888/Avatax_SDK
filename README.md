@@ -1,5 +1,5 @@
 # Avalara AvaTax Python SDK
-
+[![Build Status](https://travis-ci.org/RJB888/Python_Final.svg?branch=master)](https://travis-ci.org/RJB888/Python_Final)
 
 ## Introduction
 This GitHub repository is the Python SDK for Avalara's world-class tax service, AvaTax.  It uses the AvaTax REST v2 API, which is a fully REST implementation and provides a single client for all AvaTax functionality.  For more information about AvaTax REST v2, please visit [Avalara's Developer Network](http://developer.avalara.com/) or view the [online Swagger documentation](https://sandbox-rest.avatax.com/swagger/ui/index.html).
@@ -80,3 +80,4 @@ LICENSE_KEY='your_sandbox_license_key'
 [Robert Bronson](https://github.com/RJB888)
 
 [Adrienne Karnoski](https://github.com/adriennekarnoski)
+=======

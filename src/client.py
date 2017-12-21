@@ -20,6 +20,8 @@ from requests.auth import HTTPBasicAuth
 import os
 import sys
 
+str_type = (str, type(None))
+
 
 class AvataxClient(object):
     """Class for our Avatax client."""

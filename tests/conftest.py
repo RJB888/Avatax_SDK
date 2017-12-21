@@ -1,4 +1,4 @@
-"""Conftest is a file recognize by pytest module, allowing us to share fixture across multiple tests."""
+"""Conftest - fixtures for use in testing AvaTaxClient."""
 from client import AvataxClient
 import os
 import pytest
@@ -12,25 +12,28 @@ def unauth_client():
 
 @pytest.fixture(scope='session')
 def auth_client_loggedin_with_username():
-    """Create an instance of SanboxClient with authentification using username/password pair."""
+    """Create an instance of SanboxClient using username/password auth."""
     client = AvataxClient('test app', 'ver 0.0', 'test machine', 'sandbox')
-    client.add_credentials(os.environ.get('USERNAME', ''), os.environ.get('PASSWORD', ''))
+    client.add_credentials(os.environ.get('USERNAME', ''),
+                           os.environ.get('PASSWORD', ''))
     return client
 
 
 @pytest.fixture(scope='session')
 def auth_client():
-    """Create an instance of SanboxClient with authentification using username/password pair."""
+    """Create an instance of SanboxClient using username/password auth."""
     client = AvataxClient('test app', 'ver 0.0', 'test machine', 'sandbox')
-    client.add_credentials(os.environ.get('USERNAME', ''), os.environ.get('PASSWORD', ''))
+    client.add_credentials(os.environ.get('USERNAME', ''),
+                           os.environ.get('PASSWORD', ''))
     return client
 
 
 @pytest.fixture(scope='session')
 def auth_client_loggedin_with_id():
-    """Create an instance of SanboxClient with authentification using userID/licenseKey pair."""
+    """Create an instance of SanboxClient using userID/licenseKey auth."""
     client = AvataxClient('test app', 'ver 0.0', 'test machine', 'sandbox')
-    client.add_credentials(os.environ.get('ACCOUNT_ID', ''), os.environ.get('LICENSE_KEY', ''))
+    client.add_credentials(os.environ.get('ACCOUNT_ID', ''),
+                           os.environ.get('LICENSE_KEY', ''))
     return client
 
 
@@ -48,9 +51,10 @@ def good_address():
 
 @pytest.fixture(scope='function')
 def single_transaction():
-    """Create an instance of AvataxClient with authentication and created transaction."""
+    """Create an AvataxClient instance with auth. and created transaction."""
     client = AvataxClient('test app', 'ver 0.0', 'test machine', 'sandbox')
-    client.add_credentials(os.environ.get('USERNAME', ''), os.environ.get('PASSWORD', ''))
+    client.add_credentials(os.environ.get('USERNAME', ''),
+                           os.environ.get('PASSWORD', ''))
     tax_document = {
         'addresses': {'SingleLocation': {'city': 'Irvine',
                                          'country': 'US',
@@ -78,10 +82,11 @@ def single_transaction():
 
 @pytest.fixture(scope='function')
 def five_transactions():
-    """Create an instance of AvataxClient with authentication and created transaction."""
+    """Create 5 AvataxClient instances with auth. and created transaction."""
     trans_codes = []
     client = AvataxClient('test app', 'ver 0.0', 'test machine', 'sandbox')
-    client.add_credentials(os.environ.get('USERNAME', ''), os.environ.get('PASSWORD', ''))
+    client.add_credentials(os.environ.get('USERNAME', ''),
+                           os.environ.get('PASSWORD', ''))
     addresses = [
         ('Seattle', '600 5th Ave', '98104', 'WA'),
         ('Poulsbo', '200 Moe St Ne', '98370', 'WA'),
@@ -138,4 +143,3 @@ def tax_document():
                    'taxCode': 'PS081282'}],
         'purchaseOrderNo': '2017-04-12-001',
         'type': 'SalesInvoice'}
-

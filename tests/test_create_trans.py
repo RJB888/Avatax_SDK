@@ -28,7 +28,7 @@ def test_transaction_is_saved_when_commit_is_false(auth_client, tax_document):
     assert '"status":"Saved"' in r.text
 
 
-def test_transaction_is_commited_when_commit_is_true(auth_client, tax_document):
+def test_transaction_is_commited_if_commit_is_true(auth_client, tax_document):
     """Test that a transaction is commited when commit is true."""
     tax_document['commit'] = True
     r = auth_client.create_transaction(None, tax_document)
@@ -47,4 +47,3 @@ def test_include_param_is_addresses(auth_client, tax_document):
     include = {'$include': 'Addresses'}
     r = auth_client.create_transaction(include, tax_document)
     assert 'addresses' in r.text
-

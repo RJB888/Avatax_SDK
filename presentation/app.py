@@ -3,7 +3,7 @@ from flask import Flask, render_template
 from methods import ping, create, commit
 from client import AvataxClient
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
 from flask import render_template, flash, redirect
 import os
@@ -16,7 +16,7 @@ client.add_credentials(os.environ.get('USERNAME', ''), os.environ.get('PASSWORD'
 
 
 class CreateForm(FlaskForm):
-    model = StringField('model', validators=[DataRequired()])
+    model = TextAreaField('model', validators=[DataRequired()])
     # password = PasswordField('Password', validators=[DataRequired()])
     # remember_me = BooleanField('Remember Me')
     submit = SubmitField('call_api')
@@ -41,12 +41,12 @@ def ping_view(resp=None):
 def create_view(resp=None):
     """Create route function."""
     form = CreateForm()
-    js = None
+    js = ''
     if form.validate_on_submit():
         # import pdb; pdb.set_trace()
         js = client.create_transaction(None, json.loads(form.model.data)).json()
-        js = json.dumps(js, indent=4, sort_keys=True)
-        import pdb; pdb.set_trace()
+        js = json.dumps(js, indent=4)
+        # import pdb; pdb.set_trace()
     return render_template('create.html', title='api_call', form=form, response=js)
 
 

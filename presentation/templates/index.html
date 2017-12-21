@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Presentation Template</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Oswald" rel="stylesheet">
+</head>
+<body>
+
+
+{% if response %}
+<div class="container">
+    <a class="button" href="{{ url_for('ping_view') }}">ping</a>
+  
+    <a class="button" href="{{ url_for('create_view') }}">create</a>
+    <a class="button" href="{{ url_for('commit_view') }}">commit</a>
+    
+</div>
+<div class="container">
+    <div class="url_container">
+        <h3>API Endpoint</h3>
+        <div class="display_url">
+            {{ url }}
+        </div>
+    </div>
+    <div class="url_container">
+        <h3>Method</h3>
+        <div class="display_url">
+            {{ verb }}
+        </div>
+    </div>
+    <div class="request_container">
+        <h3>Request</h3>
+        <div class="display_request">
+            {{ request }}
+        </div>
+    </div>
+    <div class="request_container">
+        <h3>Response</h3>
+        <div class="display_request">
+            {{ response }}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+</body>
+</html>

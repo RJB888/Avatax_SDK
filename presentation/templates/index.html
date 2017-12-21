@@ -8,14 +8,13 @@
 <body>
 
 
-{% if response %}
 <div class="container">
     <a class="button" href="{{ url_for('ping_view') }}">ping</a>
-  
     <a class="button" href="{{ url_for('create_view') }}">create</a>
     <a class="button" href="{{ url_for('commit_view') }}">commit</a>
     
 </div>
+<!-- {% if response %} -->
 <div class="container">
     <div class="url_container">
         <h3>API Endpoint</h3>
@@ -42,7 +41,7 @@
         </div>
     </div>
 </div>
-{% endif %}
+<!-- {% endif %} -->
 
 </body>
 </html>

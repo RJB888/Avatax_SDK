@@ -11,7 +11,7 @@
 
 h3 {
    font-family: 'Oswald', sans-serif;
-   font-size: 24px; 
+   font-size: 24px;
 }
 
 .url_container {
@@ -30,13 +30,14 @@ h3 {
 
 .request_container {
     display: inline-block;
-    margin-left: 8%;
-    width: 38%;
+    margin: auto;
+    width: 450;
+    height: 500;
 }
 
 .display_request {
     display: inline-block;
-    height: 250px;
+    height: 500px;
     overflow: scroll;
     border: solid #6b7a8f 2px;
     padding: 2%;

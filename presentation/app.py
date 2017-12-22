@@ -13,13 +13,20 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret'
 client = AvataxClient('test_app', '0', 'machine', 'sandbox')
 client.add_credentials(os.environ.get('USERNAME', ''), os.environ.get('PASSWORD', ''))
+comp_code = 'DEFAULT'
+trans_code = ''
 
 
 class CreateForm(FlaskForm):
-    model = TextAreaField('model', validators=[DataRequired()])
+    model = TextAreaField('Request Body', validators=[DataRequired()])
     # password = PasswordField('Password', validators=[DataRequired()])
     # remember_me = BooleanField('Remember Me')
     submit = SubmitField('call_api')
+
+
+class CommitForm(FlaskForm):
+    model = TextAreaField('Transaction Code', validators=[DataRequired()])
+    submit = SubmitField('commit_call')
 
 
 @app.route('/')
@@ -43,20 +50,17 @@ def create_view(resp=None):
     form = CreateForm()
     js = ''
     if form.validate_on_submit():
-        # import pdb; pdb.set_trace()
         js = client.create_transaction(None, json.loads(form.model.data)).json()
         js = json.dumps(js, indent=4)
-        # import pdb; pdb.set_trace()
     return render_template('create.html', title='api_call', form=form, response=js)
 
 
-@app.route('/commit')
+@app.route('/commit', methods=['GET', 'POST'])
 def commit_view(resp=None):
     """Commit route function."""
-    url, verb, request, resp = commit()
-    return render_template(
-        'index.html',
-        request=request,
-        response=resp,
-        url=url,
-        verb=verb)
+    form = CommitForm()
+    js = ''
+    if form.validate_on_submit():
+        js = client.commit_transaction('DEFAULT', form.model.data).json()
+        js = json.dumps(js, indent=4)
+    return render_template('create.html', title='api_call', form=form, response=js)

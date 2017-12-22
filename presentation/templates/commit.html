@@ -15,20 +15,16 @@
 </div>
 <div class="container">
 
-    <div class="request_container">
-        <form action="" method="post" name="call_api">
-            {{ form.hidden_tag() }}
-            <p>
-                {{ form.model.label }}<br>
-                {{ form.model(size=32) }}
-            </p>
+    <div class="container">
+        {{ form.hidden_tag() }}
+        <form action="" method="post" name="commit_call">
             <p>{{ form.submit() }}</p>
         </form>
     </div>
 
-    <div class="request_container">
+    <div class="container">
         <h3>Response</h3>
-        <textarea class='display_request' rows='20' cols='60'>
+        <textarea rows='20' cols='60'>
             {{ response }}
         </textarea>
     </div>
@@ -36,6 +32,4 @@
 
 </body>
 </html>
-
-
 

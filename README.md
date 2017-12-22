@@ -73,10 +73,10 @@ LICENSE_KEY='your_sandbox_license_key'
 
 ### Meet the Team:
 
-[Han Bao](https://github.com/han8909227)
+[Han Bao](https://www.linkedin.com/in/hbao2016)
 
-[Philip Werner](https://github.com/philipwerner)
+[Philip Werner](https://www.linkedin.com/in/philip-werner-421aa66a)
 
-[Robert Bronson](https://github.com/RJB888)
+[Robert Bronson](https://www.linkedin.com/in/robert-bronson)
 
-[Adrienne Karnoski](https://github.com/adriennekarnoski)
+[Adrienne Karnoski](https://www.linkedin.com/in/adrienne-karnoski)
